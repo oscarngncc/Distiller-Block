@@ -14,10 +14,14 @@ end
 
 function update_skin_section( section, option, value )
 
-    local setting_path = SELF:GetOption('setting_path','None');
-    local ini_folder_path = SELF:GetOption('ini_folder_path','None');
+    local setting_path = SELF:GetOption('setting_path','None') ;
+    local ini_folder_path = SELF:GetOption('ini_folder_path','None') ;
+
+    --File path contain spacing in between
+    if ( string.match(setting_path, " ") or string.match(ini_folder_path, " ") ) then
+        return false;
+    end
         
-    
     if ( read_file(setting_path .. "Rainmeter.ini") ~= read_file(ini_folder_path .. "Rainmeter.ini") ) then
    
         --Since we can't read the file directly, we need to copy whole file using os.type and return it in txt
@@ -133,6 +137,11 @@ function change_ini( inText, section, option, value )
 
         end
 
+    end
+    
+    -- Append at the very end
+    if (section == true ) then
+        outText = outText .. '\n' .. option .. "=" .. value;
     end
 
     -- If changes made, return outText
