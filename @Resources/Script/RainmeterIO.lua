@@ -1,7 +1,9 @@
 function Initialize()
-
+    
+    is_update = false
     is_update = update_skin_section("Distiller_Block", "HideOnMouseOver", "1");
     if is_update == true then
+        is_update = false       --update once only
         SKIN:Bang("[!Refresh]");
     end
     
@@ -22,7 +24,7 @@ function update_skin_section( section, option, value )
         return false;
     end
         
-    if ( read_file(setting_path .. "Rainmeter.ini") ~= read_file(ini_folder_path .. "Rainmeter.ini") ) then
+    if ( read_file(ini_folder_path .. "Rainmeter.ini") == "" ) then
    
         --Since we can't read the file directly, we need to copy whole file using os.type and return it in txt
         command = "type " .. setting_path .. "Rainmeter.ini " .. "> " .. ini_folder_path .. "Rainmeter.ini";
