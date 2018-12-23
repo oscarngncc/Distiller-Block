@@ -1,7 +1,7 @@
 function Initialize()
     
     is_update = false
-    is_update = update_skin_section("Distiller_Block", "HideOnMouseOver", "1");
+    is_update = update_skin_section("Distiller_Block" .."\\" .. "Display", "HideOnMouseOver", "1");
     if is_update == true then
         is_update = false       --update once only
         SKIN:Bang("[!Refresh]");
@@ -18,32 +18,29 @@ function update_skin_section( section, option, value )
 
     local setting_path = SELF:GetOption('setting_path','None') ;
     local ini_folder_path = SELF:GetOption('ini_folder_path','None') ;
-
-    --File path contain spacing in between
-    if ( string.match(setting_path, " ") or string.match(ini_folder_path, " ") ) then
-        return false;
+    
+    --Rainmeter.ini has got read and written before
+    if ( read_file( ini_folder_path .. "Rainmeter.ini" ) ~= "" ) then
+       return false;
     end
-        
-    if ( read_file(ini_folder_path .. "Rainmeter.ini") == "" ) then
-   
-        --Since we can't read the file directly, we need to copy whole file using os.type and return it in txt
-        command = "type " .. setting_path .. "Rainmeter.ini " .. "> " .. ini_folder_path .. "Rainmeter.ini";
-        os.execute(command);
 
-        local inText = read_file( ini_folder_path .. "Rainmeter.ini" );
-        
-        if inText ~= null then
+    --Since we can't read the file directly, we need to copy whole file using os.type and return it in txt
+    command = "type " .. "\"".. setting_path .. "Rainmeter.ini" .. "\" " .. "> " .. "\"" .. ini_folder_path .. "Rainmeter.ini" .. "\""
+    os.execute(command);
 
-            local outText = change_ini( inText, section, option, value );
-            if (outText ~= nil) then
-                write_file( outText, ini_folder_path .. "Rainmeter.ini");
-                write_file( outText, setting_path .. "Rainmeter.ini");
-                return true;
-            end
+    local inText = read_file( ini_folder_path .. "Rainmeter.ini" ); 
+    
+    if inText ~= null then
 
+        local outText = change_ini( inText, section, option, value );
+        if (outText ~= nil) then
+            write_file( outText, ini_folder_path .. "Rainmeter.ini");
+            write_file( outText, setting_path .. "Rainmeter.ini");
+            return true;
         end
-    end
 
+    end
+    
     return false;
 end
 
@@ -101,11 +98,14 @@ function change_ini( inText, section, option, value )
     --string of the whole file after modification
     outText = inText
 
+    print(outText)
+
     --read the string inText char by char, break when a modification is done
     for i = 1, string.len(inText), 1 do
         
         if string.sub(inText, i, i + string.len(section) -1 ) == section then
             section_found = true
+            print(section_found); --debug
         end
 
         -- option found in the section, just need to change the value of the option
@@ -150,7 +150,6 @@ function change_ini( inText, section, option, value )
     if outText ~= inText then
         return outText;
     end
-
 
     --no changes made, probably section doesn't even exist
     return nil
