@@ -2,6 +2,7 @@ function Initialize()
     
     is_update = false
     is_update = update_skin_section("Distiller_Block" .."\\" .. "Display", "HideOnMouseOver", "1");
+    
     if is_update == true then
         is_update = false       --update once only
         SKIN:Bang("[!Refresh]");
@@ -142,7 +143,7 @@ function change_ini( inText, section, option, value )
     end
     
     -- Append at the very end
-    if (section == true ) then
+    if (section_found == true ) then
         outText = outText .. '\n' .. option .. "=" .. value;
     end
 
