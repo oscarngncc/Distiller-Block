@@ -2,7 +2,7 @@
 
 ;;;; Process Plugin
 [MeasurePluginHandleProcess]
-UpdateDivider=5
+UpdateDivider=8
 Measure=Plugin
 DynamicVariables=1
 Plugin=PluginHandleProcess
@@ -12,121 +12,172 @@ Plugin=PluginHandleProcess
 [Counter]
 Measure=Calc
 DynamicVariables=1
-UpdateDivider=2
-Formula=MeasurePluginHandleProcess
-IfAboveValue=0.5
+UpdateDivider=8
+Formula=[MeasurePluginHandleProcess:]
+IfEqualValue=1
+IfEqualAction=[!UpdateGroup MeasureDetectProcess][!Redraw]
+IfAboveValue=1.5
 IfAboveAction=[!Refresh]
-
 
 
 ;;;; Handling Transparency of Processes
 [MeasureDetectProcess_0]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue0#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_14 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_14 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_14 ImageAlpha 1 ][!SetOption ProcessBg_14 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_14 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_14 ImageAlpha #bg_alpha#]
 
 
 [MeasureDetectProcess_1]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue1#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_13 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_13 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_13 ImageAlpha 1 ][!SetOption ProcessBg_13 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_13 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_13 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_2]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue2#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_12 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_12 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_12 ImageAlpha 1 ][!SetOption ProcessBg_12 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_12 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_12 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_3]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue3#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_11 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_11 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_11 ImageAlpha 1 ][!SetOption ProcessBg_11 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_11 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_11 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_4]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue4#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_10 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_10 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_10 ImageAlpha 1 ][!SetOption ProcessBg_10 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_10 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_10 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_5]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue5#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_9 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_9 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_9 ImageAlpha 1 ][!SetOption ProcessBg_9 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_9 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_9 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_6]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue6#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_8 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_8 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_8 ImageAlpha 1 ][!SetOption ProcessBg_8 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_8 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_8 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_7]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue7#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_7 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_7 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_7 ImageAlpha 1 ][!SetOption ProcessBg_7 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_7 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_7 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_8]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue8#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_6 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_6 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_6 ImageAlpha 1 ][!SetOption ProcessBg_6 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_6 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_6 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_9]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue9#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_5 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_5 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_5 ImageAlpha 1 ][!SetOption ProcessBg_5 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_5 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_5 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_10]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue10#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_4 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_4 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_4 ImageAlpha 1 ][!SetOption ProcessBg_4 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_4 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_4 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_11]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue11#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_3 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_3 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_3 ImageAlpha 1 ][!SetOption ProcessBg_3 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_3 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_3 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_12]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue12#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_2 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_2 ImageAlpha #bg_alpha#0][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_2 ImageAlpha 1 ][!SetOption ProcessBg_2 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_2 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_2 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_13]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue13#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_1 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_1 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_1 ImageAlpha 1 ][!SetOption ProcessBg_1 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_1 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_1 ImageAlpha #bg_alpha#]
 
 [MeasureDetectProcess_14]
 Measure=String
+Group=MeasureDetectProcess
 DynamicVariables=1
 String=#PValue14#
 IfMatch=Default.png
-IfNotMatchAction=[!SetOption ProcessImg_0 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_0 ImageAlpha #bg_alpha#][!Redraw]
+IfMatchAction=[!SetOption ProcessImg_0 ImageAlpha 1 ][!SetOption ProcessBg_0 ImageAlpha 1]
+IfNotMatchAction=[!SetOption ProcessImg_0 ImageAlpha #bg_alpha# ][!SetOption ProcessBg_0 ImageAlpha #bg_alpha#]
 
 
+;==========================
+;Style
+;==========================
+
+[ProcessStyle]
+ImagePath=..\@Resources\Image\
+ImageName=#ProcImgBackground#
+ImageAlpha=1
+
+[ProcessImgStyle]
+ImagePath=..\@Resources\Icon\
+ImageAlpha=1
+W=40
+H=14
+PreserveAspectRatio=2
+X=5
+ColorMatrix1=#R_Matrix#
+ColorMatrix2=#G_Matrix#
+ColorMatrix3=#B_Matrix#
+ColorMatrix5=#W_Matrix#
 
 
 ;==========================
@@ -360,6 +411,26 @@ ImageName=#PValue0#
 Y=210
 
 
+;==========================
+;String Meter for WinAppCount 
+;==========================
+[TotalWinAppMeasure]
+Measure=String
+Group=MeasureDetectProcess
+DynamicVariables=1
+String=#WinAppCount#
+IfMatch=0
+IfNotMatchAction=[!SetOption TotalWinAppStringMeter FontColor #textcolor#]
+IfMatchAction=[!SetOption TotalWinAppStringMeter FontColor 255,255,255,1]
 
-              
-              
+[TotalWinAppStringMeter]
+DynamicVariables=1
+Meter=String
+FontColor=255,255,255,1
+Text=#WinAppCount#
+
+FontWeight=550
+FontSize=9
+X=49
+Y=210
+

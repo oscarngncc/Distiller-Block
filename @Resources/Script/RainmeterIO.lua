@@ -142,15 +142,21 @@ function change_ini( inText, section, option, value )
 
     end
     
-    -- Append at the very end
-    if (section_found == true ) then
-        outText = outText .. '\n' .. option .. "=" .. value;
-    end
-
     -- If changes made, return outText
     if outText ~= inText then
         return outText;
     end
+    
+    -- Append at the very end
+    if (section_found == true ) then
+        last_character = 1
+           while ( tonumber( string.sub(inText, i - last_character, i - last_character ) )  == nil ) do
+                last_character = last_character + 1;
+           end
+        outText = string.sub(inText, 1, i - last_character) .. '\n' .. option .. "=" .. value;
+        return outText;
+    end
+    
 
     --no changes made, probably section doesn't even exist
     return nil
