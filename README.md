@@ -1,5 +1,4 @@
-#Distiller-Block
-(Current Version 0.9.0)
+# Distiller-Block
 
 ----
 ##What is Distiller_Block ?
